@@ -1,0 +1,158 @@
+{
+    "title": "DropX",
+    "description": "dropX.io API provides programmatic access to the e-commerce intelligence data.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/dropx.io/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://dropx.io/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_api_key": {
+                "label": "access_token (api_key)",
+                "viewClass": "TextFieldView",
+                "note": "authentication header should be in header"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_products_": {
+            "main": "./lib/actions/get_products_.js",
+            "title": "Get product details by providing the product IDs",
+            "description": "Returns product details",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_products_link_search": {
+            "main": "./lib/actions/get_products_link_search.js",
+            "title": "Search for similar products by providing a link to any e-commerce product.",
+            "description": "Returns list of e-commerce product that are close to the one provided -- one from each provider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_link_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_products_link_search_v2": {
+            "main": "./lib/actions/get_products_link_search_v2.js",
+            "title": "Search for similar products by providing a link to any e-commerce product.",
+            "description": "Returns list of e-commerce product that are close to the one provided -- one from each provider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_link_search_v2.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_products_search": {
+            "main": "./lib/actions/get_products_search.js",
+            "title": "Search for any product using title",
+            "description": "Returns one unique result from every provider that dropx.io tracks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_products_search_v2": {
+            "main": "./lib/actions/get_products_search_v2.js",
+            "title": "Search for any product using title",
+            "description": "Returns one unique result from every provider that dropx.io tracks",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_search_v2.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_products_title_search": {
+            "main": "./lib/actions/get_products_title_search.js",
+            "title": "Search for any product using title",
+            "description": "Returns list of product ids",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_products_title_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users_usage": {
+            "main": "./lib/actions/get_users_usage.js",
+            "title": "Get API usuage details",
+            "description": "Returns API request consumption details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users_usage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
